@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights - Toko Kue & Bakery</title>
+    <!-- Google Fonts untuk Tampilan Modern & Elegan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           RESET & GENERAL STYLES
+        ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #d86958; /* Warna Warm Coral/Red Cake */
+            --secondary-color: #f7d6c8; /* Warna Pastel Soft Pink/Cream */
+            --bg-color: #fffaf7; /* Off-White Warm */
+            --text-dark: #332725;
+            --text-muted: #736260;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        /* ==========================================
+           HEADER & NAVBAR
+        ========================================== */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ==========================================
+           HERO SECTION
+        ========================================== */
+        .hero {
+            padding: 80px 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(216, 105, 88, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(216, 105, 88, 0.4);
+            background-color: #c45747;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        /* ==========================================
+           PROFIL / TENTANG KAMI
+        ========================================== */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .about-card {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* ==========================================
+           PRODUK KUE
+        ========================================== */
+        .products {
+            padding: 80px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .btn-wa {
+            display: block;
+            text-align: center;
+            background-color: #25D366; /* Warna WhatsApp */
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-wa:hover {
+            background-color: #1eb957;
+        }
+
+        /* ==========================================
+           INFORMASI TOKO & LOKASI
+        ========================================== */
+        .info-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .info-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .info-item h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: var(--text-muted);
+        }
+
+        .info-map {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .info-map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        /* ==========================================
+           FOOTER
+        ========================================== */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN (HP & TABLET)
+        ========================================== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 40px 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">Sweet<span>Delights</span></div>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#produk">Menu Kue</a></li>
+                <li><a href="#lokasi">Kontak & Lokasi</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero container" id="beranda">
+        <div class="hero-text">
+            <h1>Kelembutan & Kelezatan di <span>Setiap Gigitan</span></h1>
+            <p>Menyediakan aneka kue basah, pastry, dan cake buatan tangan berkualitas tinggi tanpa bahan pengawet. Cocok untuk acara spesial Anda.</p>
+            <a href="#produk" class="btn">Lihat Menu Produk</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Kue Cokelat Lezat">
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section class="about" id="tentang">
+        <div class="container">
+            <h2 class="section-title">Tentang Toko Kami</h2>
+            <p class="section-subtitle">Mengenal lebih dekat Sweet Delights Bakery</p>
+            
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>Bahan Premium</h3>
+                    <p>Kami hanya menggunakan mentega asli, cokelat impor, dan bahan olahan segar untuk menjaga kualitas rasa terbaik.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Fresh From Oven</h3>
+                    <p>Semua kue diproduksi setiap hari (freshly baked) sehingga terjamin kesegaran dan cita rasanya saat sampai di tangan Anda.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Halal & Higenis</h3>
+                    <p>Proses pembuatan dilakukan secara bersihan, higienis, dan menggunakan 100% bahan-bahan yang halal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUK KUE -->
+    <section class="products container" id="produk">
+        <h2 class="section-title">Koleksi Kue Terfavorit</h2>
+        <p class="section-subtitle">Pilih kue kesukaanmu dan pesan langsung via WhatsApp</p>
+
+        <div class="product-grid">
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80" alt="Chocolate Fudge Cake" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Chocolate Fudge Cake</h3>
+                    <p class="product-desc">Kue cokelat lembut bertingkat dengan lapisan krim cokelat pekat dan melimpah.</p>
+                    <div class="product-price">Rp 180.000</div>
+                    <!-- Ubah nomor 628123456789 dengan nomor WhatsApp Anda -->
+                    <a href="https://wa.me/628123456789?text=Halo%20Sweet%20Delights,%20saya%20mau%20pesan%20Chocolate%20Fudge%20Cake" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80" alt="Strawberry Cheesecake" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Strawberry Cheesecake</h3>
+                    <p class="product-desc">Kombinasi krim keju gurih bersanding dengan topping selai strawberry manis segar.</p>
+                    <div class="product-price">Rp 210.000</div>
+                    <a href="https://wa.me/628123456789?text=Halo%20Sweet%20Delights,%20saya%20mau%20pesan%20Strawberry%20Cheesecake" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80" alt="Assorted Cupcakes" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Cupcake Set (Isi 6)</h3>
+                    <p class="product-desc">Paket 6 cupcake cantik dengan berbagai varian rasa seperti vanila, red velvet, & cokelat.</p>
+                    <div class="product-price">Rp 95.000</div>
+                    <a href="https://wa.me/628123456789?text=Halo%20Sweet%20Delights,%20saya%20mau%20pesan%20Cupcake%20Set" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFORMASI & LOKASI -->
+    <section class="info-section" id="lokasi">
+        <div class="container">
+            <h2 class="section-title">Informasi & Lokasi Toko</h2>
+            <p class="section-subtitle">Kunjungi toko fisik kami atau hubungi kami secara langsung</p>
+
+            <div class="info-wrapper">
+                <div class="info-details">
+                    <div class="info-item">
+                        <h4>Alamat Toko</h4>
+                        <p>Jl. Mawar Indah No. 45, Kecamatan Magelang Utara, Kota Magelang, Jawa Tengah 56115</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Jam Operasional</h4>
+                        <p>Senin - Minggu: 08.00 - 20.00 WIB</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Kontak Kami</h4>
+                        <p>WhatsApp: +62 812-3456-789</p>
+                        <p>Instagram: @sweetdelights_bakery</p>
+                    </div>
+                </div>
+
+                <div class="info-map">
+                    <!-- Google Maps Embed Sample -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126588.16337194602!2d110.14728515000001!3d-7.47261295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a82810842e3b1%3A0xe54e637f9035e4d2!2sMagelang%2C%20Kota%20Magelang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1695800000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sweet Delights Bakery. All Rights Reserved. Created by Harry Bayu Pamungkas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
